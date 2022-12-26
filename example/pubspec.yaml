@@ -1,9 +1,9 @@
 name: honeywell_scanner_example
 description: Demonstrates how to use the honeywell_scanner plugin.
-publish_to: 'none'
+publish_to: "none"
 
 environment:
-  sdk: '>=2.12.0 <3.0.0'
+  sdk: ">=2.18.5 <3.0.0"
 
 dependencies:
   flutter:
@@ -16,13 +16,11 @@ dev_dependencies:
     sdk: flutter
   flutter_lints: ^1.0.4
 
-
 # For information on the generic Dart part of this file, see the
 # following page: https://dart.dev/tools/pub/pubspec
 
 # The following section is specific to Flutter.
 flutter:
-
   # The following line ensures that the Material Icons font is
   # included with your application, so that you can use the icons in
   # the material Icons class.

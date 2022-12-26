@@ -34,7 +34,7 @@ class _MyAppState extends State<MyApp>
   @override
   void initState() {
     super.initState();
-    WidgetsBinding.instance?.addObserver(this);
+    WidgetsBinding.instance.addObserver(this);
     honeywellScanner.scannerCallback = this;
     // honeywellScanner.onScannerDecodeCallback = onDecoded;
     // honeywellScanner.onScannerErrorCallback = onError;
@@ -95,31 +95,38 @@ class _MyAppState extends State<MyApp>
   Widget get scannedDataView => RichText(
         textAlign: TextAlign.center,
         text: TextSpan(
-            style: TextStyle(
-                color: Theme.of(context).textTheme.bodyText1?.color,
-                height: 0.8),
-            children: [
-              const TextSpan(text: 'Scanned code: '),
-              TextSpan(
-                  text: '${scannedData?.code}\n\n',
-                  style: const TextStyle(fontWeight: FontWeight.bold)),
-              const TextSpan(text: 'Scanned codeId symbol: '),
-              TextSpan(
-                  text: '${scannedData?.codeId}\n\n',
-                  style: const TextStyle(fontWeight: FontWeight.bold)),
-              const TextSpan(text: 'Scanned code type: '),
-              TextSpan(
-                  text: '${scannedData?.codeType}\n\n',
-                  style: const TextStyle(fontWeight: FontWeight.bold)),
-              const TextSpan(text: 'Scanned aimId: '),
-              TextSpan(
-                  text: '${scannedData?.aimId}\n\n',
-                  style: const TextStyle(fontWeight: FontWeight.bold)),
-              const TextSpan(text: 'Scanned charset: '),
-              TextSpan(
-                  text: '${scannedData?.charset}\n\n',
-                  style: const TextStyle(fontWeight: FontWeight.bold)),
-            ]),
+          style: TextStyle(
+            color: Theme.of(context).textTheme.bodyText1?.color,
+            height: 0.8,
+          ),
+          children: [
+            const TextSpan(text: 'Scanned code: '),
+            TextSpan(
+              text: '${scannedData?.code}\n\n',
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            const TextSpan(text: 'Scanned codeId symbol: '),
+            TextSpan(
+              text: '${scannedData?.codeId}\n\n',
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            const TextSpan(text: 'Scanned code type: '),
+            TextSpan(
+              text: '${scannedData?.codeType}\n\n',
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            const TextSpan(text: 'Scanned aimId: '),
+            TextSpan(
+              text: '${scannedData?.aimId}\n\n',
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+            const TextSpan(text: 'Scanned charset: '),
+            TextSpan(
+              text: '${scannedData?.charset}\n\n',
+              style: const TextStyle(fontWeight: FontWeight.bold),
+            ),
+          ],
+        ),
       );
 
   @override
@@ -138,15 +145,17 @@ class _MyAppState extends State<MyApp>
                   Text(
                     'Device supported: $isDeviceSupported',
                     style: TextStyle(
-                        color: isDeviceSupported ? Colors.green : Colors.red,
-                        fontSize: 18,
-                        fontWeight: FontWeight.bold),
+                      color: isDeviceSupported ? Colors.green : Colors.red,
+                      fontSize: 18,
+                      fontWeight: FontWeight.bold,
+                    ),
                   ),
                   const SizedBox(height: 8),
                   Text(
                     'Scanner: ${scannerEnabled ? "Started" : "Stopped"}',
                     style: TextStyle(
-                        color: scannerEnabled ? Colors.blue : Colors.orange),
+                      color: scannerEnabled ? Colors.blue : Colors.orange,
+                    ),
                   ),
                   const SizedBox(height: 8),
                   if (scannedData != null && errorMessage == null)
@@ -157,7 +166,9 @@ class _MyAppState extends State<MyApp>
                       'Error: $errorMessage',
                       textAlign: TextAlign.center,
                       style: const TextStyle(
-                          color: Colors.red, fontWeight: FontWeight.bold),
+                        color: Colors.red,
+                        fontWeight: FontWeight.bold,
+                      ),
                     ),
                     const SizedBox(height: 8),
                   ],
@@ -189,15 +200,18 @@ class _MyAppState extends State<MyApp>
                       ElevatedButton(
                         child: const Text("Start Scanner"),
                         style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.blue)),
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.blue),
+                        ),
                         onPressed: () => onClick(BTN_START_SCANNER),
                       ),
                       ElevatedButton(
                         child: const Text("Stop Scanner"),
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                Colors.blue.shade700)),
+                          backgroundColor: MaterialStateProperty.all(
+                            Colors.blue.shade700,
+                          ),
+                        ),
                         onPressed: () => onClick(BTN_STOP_SCANNER),
                       ),
                     ],
@@ -209,15 +223,18 @@ class _MyAppState extends State<MyApp>
                       ElevatedButton(
                         child: const Text("Start Scanning"),
                         style: ButtonStyle(
-                            backgroundColor:
-                                MaterialStateProperty.all(Colors.green)),
+                          backgroundColor:
+                              MaterialStateProperty.all(Colors.green),
+                        ),
                         onPressed: () => onClick(BTN_START_SCANNING),
                       ),
                       ElevatedButton(
                         child: const Text("Stop Scanning"),
                         style: ButtonStyle(
-                            backgroundColor: MaterialStateProperty.all(
-                                Colors.green.shade700)),
+                          backgroundColor: MaterialStateProperty.all(
+                            Colors.green.shade700,
+                          ),
+                        ),
                         onPressed: () => onClick(BTN_STOP_SCANNING),
                       ),
                     ],
